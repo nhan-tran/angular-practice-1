@@ -77,6 +77,6 @@ C:\Users\ntran\Documents\Visual Studio 2015\Projects\Angular\Angular\bin\Microso
 C:\Users\ntran\Documents\Visual Studio 2015\Projects\Angular\Angular\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\ntran\Documents\Visual Studio 2015\Projects\Angular\Angular\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\ntran\Documents\Visual Studio 2015\Projects\Angular\Angular\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\ntran\Documents\Visual Studio 2015\Projects\Angular\Angular\obj\Debug\Angular.csprojResolveAssemblyReference.cache
 C:\Users\ntran\Documents\Visual Studio 2015\Projects\Angular\Angular\obj\Debug\Angular.dll
 C:\Users\ntran\Documents\Visual Studio 2015\Projects\Angular\Angular\obj\Debug\Angular.pdb
+C:\Users\ntran\Documents\Visual Studio 2015\Projects\Angular\Angular\obj\Debug\Angular.csprojResolveAssemblyReference.cache

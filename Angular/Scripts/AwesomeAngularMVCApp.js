@@ -5,8 +5,10 @@ var AwesomeAngularMVCApp = angular.module('AwesomeAngularMVCApp', ['ngRoute']);
 
 AwesomeAngularMVCApp.controller('LandingPageController', LandingPageController);
 AwesomeAngularMVCApp.controller('LoginController', LoginController);
+AwesomeAngularMVCApp.controller('RegisterController', RegisterController);
 
 AwesomeAngularMVCApp.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor);
+AwesomeAngularMVCApp.factory('LoginFactory', LoginFactory);
 
 var configFunction = function ($routeProvider, $httpProvider) {
 	$routeProvider.
@@ -19,9 +21,13 @@ var configFunction = function ($routeProvider, $httpProvider) {
 		.when('/routeThree', {
 			templateUrl: 'routesDemo/three'
 		})
-		.when('/login?returnUrl', {
+		.when('/login', {
 			templateUrl: '/Account/Login',
 			controller: LoginController
+		})
+		when('/register', {
+			templateUrl: '/Account/Register',
+			controller: RegisterController
 		});
 
 	$httpProvider.interceptors.push('AuthHttpResponseInterceptor');
