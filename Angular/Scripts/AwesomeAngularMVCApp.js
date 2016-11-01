@@ -25,7 +25,7 @@ var configFunction = function ($routeProvider, $httpProvider) {
 			templateUrl: '/Account/Login',
 			controller: LoginController
 		})
-		when('/register', {
+		.when('/register', {
 			templateUrl: '/Account/Register',
 			controller: RegisterController
 		});
