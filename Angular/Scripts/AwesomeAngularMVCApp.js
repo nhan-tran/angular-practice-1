@@ -9,6 +9,7 @@ AwesomeAngularMVCApp.controller('RegisterController', RegisterController);
 
 AwesomeAngularMVCApp.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor);
 AwesomeAngularMVCApp.factory('LoginFactory', LoginFactory);
+AwesomeAngularMVCApp.factory('RegistrationFactory', RegistrationFactory);
 
 var configFunction = function ($routeProvider, $httpProvider) {
 	$routeProvider.

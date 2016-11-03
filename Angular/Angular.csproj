@@ -222,6 +222,7 @@
     <Content Include="Scripts\Controllers\RegisterController.js" />
     <Content Include="Scripts\Factories\AuthHttpResponseInterceptor.js" />
     <Content Include="Scripts\Factories\LoginFactory.js" />
+    <Content Include="Scripts\Factories\RegistrationFactory.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
