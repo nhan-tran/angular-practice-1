@@ -11,7 +11,10 @@ AwesomeAngularMVCApp.factory('AuthHttpResponseInterceptor', AuthHttpResponseInte
 AwesomeAngularMVCApp.factory('LoginFactory', LoginFactory);
 AwesomeAngularMVCApp.factory('RegistrationFactory', RegistrationFactory);
 
-var configFunction = function ($routeProvider, $httpProvider) {
+var configFunction = function ($routeProvider, $httpProvider, $locationProvider) {
+
+	$locationProvider.hashPrefix('!').html5Mode(true);
+
 	$routeProvider.
 		when('/routeOne', {
 			templateUrl: 'routesDemo/one'
@@ -33,7 +36,5 @@ var configFunction = function ($routeProvider, $httpProvider) {
 
 	$httpProvider.interceptors.push('AuthHttpResponseInterceptor');
 }
-
-configFunction.$inject = ['$routeProvider', '$httpProvider'];
-
+configFunction.$inject = ['$routeProvider', '$httpProvider', '$locationProvider'];
 AwesomeAngularMVCApp.config(configFunction);
