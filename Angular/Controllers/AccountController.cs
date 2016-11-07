@@ -1,4 +1,5 @@
 ﻿using Angular.Models;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System.Threading.Tasks;
 using System.Web;
@@ -64,7 +65,7 @@ namespace Angular.Controllers
 		public async Task<bool> Register(RegisterViewModel model)
 		{
 			var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-			var result = await UserManager.CreateAsync(user, model.Password);
+			var result = UserManager.Create(user, model.Password);
 			if (!result.Succeeded) return false;
 			await SignInManager.SignInAsync(user, false, false);
 			return true;

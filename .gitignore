@@ -5,16 +5,17 @@
 *.suo
 *.user
 *.sln.docstates
+*.dll
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-x64/
-build/
-bld/
-[Bb]in/
-[Oo]bj/
+Angular/[Dd]ebug/
+Angular/[Dd]ebugPublic/
+Angular/[Rr]elease/
+Angular/x64/
+Angular/build/
+Angular/bld/
+Angular/[Bb]in/
+Angular/[Oo]bj/
 
 # Roslyn cache directories
 *.ide/
