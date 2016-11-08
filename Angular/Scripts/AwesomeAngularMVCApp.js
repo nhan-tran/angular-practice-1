@@ -1,7 +1,7 @@
 ﻿
 
 
-var AwesomeAngularMVCApp = angular.module('AwesomeAngularMVCApp', ['ngRoute', 'ui.bootstrap']);
+var AwesomeAngularMVCApp = angular.module('AwesomeAngularMVCApp', ['ui.router', 'ui.bootstrap']);
 
 AwesomeAngularMVCApp.controller('LandingPageController', LandingPageController);
 AwesomeAngularMVCApp.controller('LoginController', LoginController);
@@ -11,30 +11,59 @@ AwesomeAngularMVCApp.factory('AuthHttpResponseInterceptor', AuthHttpResponseInte
 AwesomeAngularMVCApp.factory('LoginFactory', LoginFactory);
 AwesomeAngularMVCApp.factory('RegistrationFactory', RegistrationFactory);
 
-var configFunction = function ($routeProvider, $httpProvider, $locationProvider) {
+var configFunction = function ($stateProvider, $httpProvider, $locationProvider) {
 
 	$locationProvider.hashPrefix('!').html5Mode(true);
 
-	$routeProvider.
-		when('/routeOne', {
-			templateUrl: 'routesDemo/one'
+	$stateProvider
+		.state('stateOne', {
+			url: '/stateOne?donuts',
+			views: {
+				"containerOne": {
+					templateUrl: '/routesDemo/one'
+				},
+				"containerTwo": {
+					templateUrl: function (params) { return '/routesDemo/two?donuts=' + params.donuts; }
+				}
+			}
 		})
-		.when('/routeTwo/:donuts', {
-			templateUrl: function (params) { return '/routesDemo/two?donuts=' + params.donuts; }
+		.state('stateTwo', {
+			url: '/stateTwo',
+			views: {
+				"containerOne": {
+					templateUrl: '/routesDemo/one'
+				},
+				"containerTwo": {
+					templateUrl: '/routesDemo/three'
+				}
+			}
 		})
-		.when('/routeThree', {
-			templateUrl: 'routesDemo/three'
+		.state('stateThree', {
+			url: '/stateThree?donuts',
+			views: {
+				"containerOne": {
+					templateUrl: function (params) { return '/routesDemo/two?donuts=' + params.donuts; }
+				},
+				"containerTwo": {
+					templateUrl: '/routesDemo/three'
+				}
+			}
 		})
-		.when('/login', {
-			templateUrl: '/Account/Login',
-			controller: LoginController
-		})
-		.when('/register', {
-			templateUrl: '/Account/Register',
-			controller: RegisterController
+		.state('loginRegister', {
+			url: '/loginRegister?returnUrl',
+			views: {
+				"containerOne": {
+					templateUrl: '/Account/Login',
+					controller: LoginController
+				},
+				"containerTwo": {
+					templateUrl: '/Account/Register',
+					controller: RegisterController
+				}
+			}
 		});
 
 	$httpProvider.interceptors.push('AuthHttpResponseInterceptor');
 }
-configFunction.$inject = ['$routeProvider', '$httpProvider', '$locationProvider'];
+configFunction.$inject = ['$stateProvider', '$httpProvider', '$locationProvider'];
 AwesomeAngularMVCApp.config(configFunction);
